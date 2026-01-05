@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yosakura - Home</title>
     <style>
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px) translateX(-50%);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) translateX(-50%);
-            }
+            from { opacity: 0; transform: translateY(-30px) translateX(-50%); }
+            to { opacity: 1; transform: translateY(0) translateX(-50%); }
         }
 
         @keyframes float {
@@ -21,132 +16,254 @@
             100% { transform: translateY(0) translateX(-50%); }
         }
 
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideInTop {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-image: url('https://i.postimg.cc/W4qLWspg/Nouveau-projet-(1).png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.postimg.cc/W4qLWspg/Nouveau-projet-(1).png');
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            display: flex;
-            justify-content: center;
+            color: white;
+            overflow: hidden;
         }
 
         .navbar {
             margin-top: 20px;
-            width: auto; 
-            min-width: 700px;
+            width: 90%; 
+            max-width: 1200px;
             background-color: rgba(15, 8, 12, 0.457);
             backdrop-filter: blur(10px);
-            padding: 10px 20px; 
-            border-radius: 12px; 
+            padding: 10px 30px; 
+            border-radius: 16px; 
             display: flex;
             align-items: center;
-            justify-content: flex-start; 
+            justify-content: space-between; 
             position: fixed;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
             box-shadow: 0 10px 40px rgba(37, 35, 35, 0.584);
-            /* L'animation 'float' démarre maintenant avec un délai de 1s */
-            animation: fadeInDown 0.8s ease-out forwards, float 3s ease-in-out infinite 1s;
+            animation: fadeInDown 1.2s ease-out forwards, float 4s ease-in-out infinite 1.2s;
         }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            margin-left: -40px; 
+        .brand { 
+            display: flex; 
+            align-items: center; 
+            text-decoration: none; 
+            margin-left: -20px; 
         }
 
-        .logo-img {
-            height: 122.5px; 
-            width: auto;
-            margin: -45px 0; 
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        .logo-img { 
+            height: 100px; 
+            width: auto; 
+            margin: -35px 0;
+            filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3)); 
         }
 
-        .title-img {
-            height: 45px; 
-            width: auto;
-            transform: translate(-55px, 5px);
+        .title-img { 
+            height: 40px; 
+            width: auto; 
+            transform: translate(-45px, 5px);
             filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
         }
 
-        .nav-group {
-            display: flex;
-            align-items: center;
-            gap: 30px;
+        .nav-group { 
+            display: flex; 
+            align-items: center; 
+            gap: 45px; 
         }
 
-        .nav-group.right {
-            margin-left: auto;
-            margin-right: 10px;
+        .nav-link { 
+            color: #bbb; 
+            text-decoration: none; 
+            font-size: 15px; 
+            font-weight: 600; 
+            transition: all 0.3s ease; 
         }
 
-        .nav-link {
-            color: #bbb;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            transform: translateX(-60px);
+        .nav-link:hover { 
+            color: white; 
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
         }
 
-        .nav-link.login-link {
-            transform: translateX(0px); 
-        }
-
-        .nav-link:hover {
-            color: white;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-        }
-
-        .signup-btn {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 15px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
+        .signup-btn { 
+            background-color: rgba(255, 255, 255, 0.1); 
+            color: white; 
+            padding: 10px 24px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: bold; 
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .signup-btn:hover {
             background-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
 
-        .spacer {
-            height: 200vh;
+        .user-badge {
+            background: rgba(25, 136, 0, 0.1);
+            border: 1px solid #198800;
+            padding: 8px 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
+        .logout-link { background: none; border: none; color: #ff4d4d; cursor: pointer; font-size: 11px; text-decoration: underline; margin-left: 10px; }
+
+        .hero-container {
+            height: 100vh;
+            display: flex;
+            align-items: flex-start; 
+            padding-left: 10%;
+            padding-top: 280px; 
+        }
+
+        .hero-content-titles {
+            animation: zoomIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            transform-origin: left center;
+        }
+
+        .hero-title { font-size: 55px; font-weight: 800; line-height: 1.1; margin: 0; color: white; }
+        .highlight { color: #198800; text-shadow: 0 0 20px rgba(0, 138, 9, 0.4); }
+        .hero-subtitle { font-size: 45px; font-weight: 800; margin: 0; color: white; }
+
+        .hero-description { 
+            font-size: 16px; 
+            color: #bbb; 
+            margin-top: 15px; 
+            max-width: 380px; 
+            line-height: 1.5;
+            opacity: 0;
+            animation: slideInTop 0.8s ease-out forwards 0.5s;
+        }
+
+        .action-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            opacity: 0;
+            animation: slideInTop 0.8s ease-out forwards 0.9s;
+        }
+
+        .claim-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4px 8px; 
+            border-radius: 10px;
+            width: 250px;
+        }
+
+        .claim-prefix { color: #666; padding-left: 8px; font-weight: 600; font-size: 15px; }
+        .claim-input { background: transparent; border: none; color: white; padding: 8px; font-size: 15px; outline: none; flex-grow: 1; }
+        .claim-input::placeholder { color: #555; }
+
+        .claim-btn { 
+    background-color: rgba(33, 182, 0, 0.05); 
+    color: #21b200; 
+    padding: 10px 24px; 
+    border-radius: 12px; 
+    font-size: 14px; 
+    font-weight: bold; 
+    border: 1px solid rgba(33, 182, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.claim-btn:hover {
+    background-color: rgba(33, 182, 0, 0.18);
+    color: #21b200;
+    transform: translateY(-2px);
+}
+
     </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-group">
-            <a href="#" class="brand">
+            <a href="index.html" class="brand">
                 <img src="https://i.postimg.cc/cHMDXLj7/Gemini-Generated-Image-fa34i6fa34i6fa34-removebg-preview.png" alt="Logo" class="logo-img">
-                <img src="https://i.postimg.cc/02Nt0xCd/titre.png" alt="Haunt.gg" class="title-img">
+                <img src="https://i.postimg.cc/02Nt0xCd/titre.png" alt="yosakura.lol" class="title-img">
             </a>
             <a href="#" class="nav-link">Discord</a>
             <a href="#" class="nav-link">Leaderboard</a>            
             <a href="#" class="nav-link">Team</a>
         </div>
 
-        <div class="nav-group right">
-            <a href="#" class="nav-link login-link">Login</a>
-            <a href="#" class="signup-btn">Sign Up</a>
+        <div class="nav-group" id="auth-section">
+            <a href="login.html" class="nav-link">Login</a>
+            <a href="signup.html" class="signup-btn">Sign Up</a>
         </div>
     </nav>
 
-    <div class="spacer"></div>
+    <main class="hero-container">
+        <div class="hero-content">
+            <div class="hero-content-titles">
+                <h1 class="hero-title">All You <span class="highlight">Are</span>,</h1>
+                <h2 class="hero-subtitle">In One Place.</h2>
+            </div>
+            <p class="hero-description">The ultimate destination to craft your digital identity and share your world with the aesthetic it deserves.</p>
+            <div class="action-wrapper">
+                <div class="claim-container">
+                    <span class="claim-prefix">yosakura.lol/</span>
+                    <input type="text" class="claim-input" placeholder="username">
+                </div>
+                <button class="claim-btn">Claim Username</button>
+            </div>
+        </div>
+    </main>
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC8hhDek0GuNk8y9e23l8lGf4PQ2cj_Hzc",
+            authDomain: "TON_PROJET.firebaseapp.com",
+            projectId: "TON_PROJET",
+            storageBucket: "TON_PROJET.appspot.com",
+            messagingSenderId: "TON_ID",
+            appId: "TON_APP_ID"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        window.handleLogout = () => signOut(auth);
+
+        onAuthStateChanged(auth, (user) => {
+            const authSection = document.getElementById('auth-section');
+            if (user) {
+                const name = user.displayName || user.email.split('@')[0];
+                authSection.innerHTML = `
+                    <div class="user-badge">
+                        <span>${name}</span>
+                        <button onclick="handleLogout()" class="logout-link">Logout</button>
+                    </div>`;
+            } else {
+                authSection.innerHTML = `
+                    <a href="login.html" class="nav-link">Login</a>
+                    <a href="signup.html" class="signup-btn">Sign Up</a>`;
+            }
+        });
+    </script>
 </body>
 </html>
