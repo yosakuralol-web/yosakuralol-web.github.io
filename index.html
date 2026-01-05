@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) translateX(-50%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) translateX(-50%);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(-50%); }
+            50% { transform: translateY(6px) translateX(-50%); }
+            100% { transform: translateY(0) translateX(-50%); }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: url('https://i.postimg.cc/W4qLWspg/Nouveau-projet-(1).png');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar {
+            margin-top: 20px;
+            width: auto; 
+            min-width: 700px;
+            background-color: rgba(15, 8, 12, 0.457);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px; 
+            border-radius: 12px; 
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; 
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(37, 35, 35, 0.584);
+            /* L'animation 'float' démarre maintenant avec un délai de 1s */
+            animation: fadeInDown 0.8s ease-out forwards, float 3s ease-in-out infinite 1s;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            margin-left: -40px; 
+        }
+
+        .logo-img {
+            height: 122.5px; 
+            width: auto;
+            margin: -45px 0; 
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        .title-img {
+            height: 45px; 
+            width: auto;
+            transform: translate(-55px, 5px);
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        .nav-group {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-group.right {
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            transform: translateX(-60px);
+        }
+
+        .nav-link.login-link {
+            transform: translateX(0px); 
+        }
+
+        .nav-link:hover {
+            color: white;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .signup-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .signup-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .spacer {
+            height: 200vh;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-group">
+            <a href="#" class="brand">
+                <img src="https://i.postimg.cc/cHMDXLj7/Gemini-Generated-Image-fa34i6fa34i6fa34-removebg-preview.png" alt="Logo" class="logo-img">
+                <img src="https://i.postimg.cc/02Nt0xCd/titre.png" alt="Haunt.gg" class="title-img">
+            </a>
+            <a href="#" class="nav-link">Discord</a>
+            <a href="#" class="nav-link">Leaderboard</a>            
+            <a href="#" class="nav-link">Team</a>
+        </div>
+
+        <div class="nav-group right">
+            <a href="#" class="nav-link login-link">Login</a>
+            <a href="#" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="spacer"></div>
+
+</body>
+</html>
