@@ -173,14 +173,19 @@ body, html {
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
+if (location.pathname.endsWith(".html")) {
+    const cleanPath = location.pathname.replace(".html", "");
+    history.replaceState(null, "", cleanPath);
+}
+
 const firebaseConfig = { 
     apiKey: "AIzaSyC8hhDek0GuNk8y9e23l8lGf4PQ2cj_Hzc",
-  authDomain: "fir-deffe.firebaseapp.com",
-  projectId: "fir-deffe",
-  storageBucket: "fir-deffe.firebasestorage.app",
-  messagingSenderId: "758364730866",
-  appId: "1:758364730866:web:feae96430aa5b8512da76b",
-  measurementId: "G-SZ7H9QLL99"
+    authDomain: "fir-deffe.firebaseapp.com",
+    projectId: "fir-deffe",
+    storageBucket: "fir-deffe.firebasestorage.app",
+    messagingSenderId: "758364730866",
+    appId: "1:758364730866:web:feae96430aa5b8512da76b",
+    measurementId: "G-SZ7H9QLL99"
 };
 
 const auth = getAuth(initializeApp(firebaseConfig));
@@ -189,30 +194,32 @@ const provider = new GoogleAuthProvider();
 const errorMsg = document.getElementById('errorMsg');
 
 document.getElementById('loginBtn').onclick = async () => {
-    errorMsg.style.display = "none"; // cacher l'erreur précédente
+    errorMsg.style.display = "none";
     try {
-        await signInWithEmailAndPassword(auth,
+        await signInWithEmailAndPassword(
+            auth,
             document.getElementById('email').value,
             document.getElementById('pass').value
         );
-        window.location.href = "index.html"; 
+        window.location.href = "/";
     } catch (e) {
         errorMsg.textContent = "Identifiants incorrects.";
-        errorMsg.style.display = "block"; // montrer l'erreur en rouge
+        errorMsg.style.display = "block";
     }
 };
 
 document.getElementById('googleBtn').onclick = async () => {
-    errorMsg.style.display = "none"; // cacher l'erreur précédente
+    errorMsg.style.display = "none";
     try {
         await signInWithPopup(auth, provider);
-        window.location.href = "index.html";
+        window.location.href = "/";
     } catch (e) {
         errorMsg.textContent = "Erreur lors de la connexion Google.";
-        errorMsg.style.display = "block"; // montrer l'erreur en rouge
+        errorMsg.style.display = "block";
     }
 };
 </script>
+
 
 </body>
 </html>
