@@ -30,7 +30,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.postimg.cc/W4qLWspg/Nouveau-projet-(1).png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.postimg.cc/W1JGrmfy/background-(1).png');
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -65,18 +65,25 @@
             margin-left: -20px; 
         }
 
-        .logo-img { 
-            height: 100px; 
-            width: auto; 
-            margin: -35px 0;
-            filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3)); 
+        .brand-text {
+            font-size: 30px;
+            letter-spacing: 1px;
+            margin-left: 15px;
+            margin-top: -15px;
+            font-weight: 600;
+            color: white;
+            transform: translateY(3px);
+            text-shadow:
+                0 2px 10px rgba(255, 255, 255, 0.25),
+                0 0 18px rgba(255, 255, 255, 0.12);
         }
 
-        .title-img { 
-            height: 40px; 
-            width: auto; 
-            transform: translate(-45px, 5px);
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        .brand-text span {
+            color: #21b200;
+            text-shadow:
+                0 0 6px rgba(33, 178, 0, 0.9),
+                0 0 14px rgba(33, 178, 0, 0.6),
+                0 0 22px rgba(33, 178, 0, 0.35);
         }
 
         .nav-group { 
@@ -85,18 +92,22 @@
             gap: 45px; 
         }
 
+        /* ===== EFFET HOVER TYPE DISCORD ===== */
         .nav-link { 
             color: #bbb; 
             text-decoration: none; 
             font-size: 15px; 
             font-weight: 600; 
+            padding: 8px 18px;
+            border-radius: 13px;
             transition: all 0.3s ease; 
         }
 
-        .nav-link:hover { 
-            color: white; 
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-        }
+        .nav-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.06); 
+}
+
 
         .signup-btn { 
             background-color: rgba(255, 255, 255, 0.1); 
@@ -123,7 +134,16 @@
             align-items: center;
             gap: 12px;
         }
-        .logout-link { background: none; border: none; color: #ff4d4d; cursor: pointer; font-size: 11px; text-decoration: underline; margin-left: 10px; }
+
+        .logout-link { 
+            background: none; 
+            border: none; 
+            color: #ff4d4d; 
+            cursor: pointer; 
+            font-size: 11px; 
+            text-decoration: underline; 
+            margin-left: 10px; 
+        }
 
         .hero-container {
             height: 100vh;
@@ -135,12 +155,11 @@
 
         .hero-content-titles {
             animation: zoomIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            transform-origin: left center;
         }
 
-        .hero-title { font-size: 55px; font-weight: 800; line-height: 1.1; margin: 0; color: white; }
+        .hero-title { font-size: 55px; font-weight: 800; margin: 0; }
+        .hero-subtitle { font-size: 45px; font-weight: 800; margin: 0; }
         .highlight { color: #198800; text-shadow: 0 0 20px rgba(0, 138, 9, 0.4); }
-        .hero-subtitle { font-size: 45px; font-weight: 800; margin: 0; color: white; }
 
         .hero-description { 
             font-size: 16px; 
@@ -173,37 +192,44 @@
 
         .claim-prefix { color: #666; padding-left: 8px; font-weight: 600; font-size: 15px; }
         .claim-input { background: transparent; border: none; color: white; padding: 8px; font-size: 15px; outline: none; flex-grow: 1; }
-        .claim-input::placeholder { color: #555; }
 
-        .claim-btn { 
-    background-color: rgba(33, 182, 0, 0.05); 
-    color: #21b200; 
-    padding: 10px 24px; 
-    border-radius: 12px; 
-    font-size: 14px; 
-    font-weight: bold; 
-    border: 1px solid rgba(33, 182, 0, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        .claim-btn {
+            padding: 14px 26px;
+            background: rgba(85, 122, 46, 0.05);
+            color: #274c00;
+            border: 1px solid rgba(85, 122, 46, 0.3);
+            border-radius: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.claim-btn:hover {
-    background-color: rgba(33, 182, 0, 0.18);
-    color: #21b200;
-    transform: translateY(-2px);
+        .claim-btn:hover {
+            background: rgba(85, 122, 46, 0.1);
+            color: #7bab49;
+            transform: translateY(-2px);
+        }
+        img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
 }
 
     </style>
 </head>
+
 <body>
 
 <nav class="navbar">
     <div class="nav-group">
         <a href="/" class="brand">
-            <img src="https://i.postimg.cc/cHMDXLj7/Gemini-Generated-Image-fa34i6fa34i6fa34-removebg-preview.png" class="logo-img">
-            <img src="https://i.postimg.cc/02Nt0xCd/titre.png" class="title-img">
+            <div class="brand-text">yoskr<span>.</span>lol</div>
         </a>
-        <a href="#" class="nav-link">Discord</a>
+
+        <a href="https://discord.gg/976HCmzmnN" class="nav-link" target="_blank" rel="noopener">Discord</a>
         <a href="#" class="nav-link">Leaderboard</a>
         <a href="#" class="nav-link">Team</a>
     </div>
@@ -220,7 +246,9 @@
             <h1 class="hero-title">All You <span class="highlight">Are</span>,</h1>
             <h2 class="hero-subtitle">In One Place.</h2>
         </div>
-        <p class="hero-description">The ultimate destination to craft your digital identity and share your world with the aesthetic it deserves.</p>
+        <p class="hero-description">
+            The ultimate destination to craft your digital identity and share your world with the aesthetic it deserves.
+        </p>
         <div class="action-wrapper">
             <div class="claim-container">
                 <span class="claim-prefix">yosakura.lol/</span>
@@ -268,6 +296,10 @@ onAuthStateChanged(auth, (user) => {
             <a href="/login" class="nav-link">Login</a>
             <a href="/signup" class="signup-btn">Sign Up</a>`;
     }
+});
+
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
 });
 </script>
 
