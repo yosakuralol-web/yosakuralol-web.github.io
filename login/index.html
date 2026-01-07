@@ -15,28 +15,23 @@ body, html {
     margin: 0; padding: 0; height: 100%; width: 100%;
     font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 200;
-    background: url('https://i.postimg.cc/W4qLWspg/Nouveau-projet-(1).png') no-repeat center center fixed;
-    background-size: cover;
+    background: #101010; 
     display: flex; justify-content: center; align-items: center;
+    overflow: hidden;
 }
 
-.page-overlay {
-    position: fixed; inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-}
 
 .auth-card {
-    background: rgba(255, 255, 255, 0.005);
+    background: rgb(29, 29, 29);
     backdrop-filter: blur(3px); 
     width: 380px;
     padding: 130px 35px 30px 35px;
     border-radius: 20px;
-    border: 1px solid rgba(85, 122, 46, 0.25);
+    border: 2px solid rgba(0, 0, 0, 0.566);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
     text-align: center;
     position: relative;
-    z-index: 2;
+    z-index: 2; 
     color: white;
 }
 
@@ -105,8 +100,11 @@ body, html {
     transform: translateY(-2px);
 }
 
-.footer-link { color: #bbb; font-size: 12px; margin-top: 30px; display: block; text-decoration: none; }
-.footer-link span { color: #557a2e; font-weight: bold; }
+.footer-link { color: #bbb; font-size: 12px; margin-top: 30px; display: block; text-decoration: none;  }
+.footer-link span { color: #25cd00b1; font-weight: bold; }
+.footer-link span:hover {
+    text-decoration: underline;
+}
 
 .error-msg {
     color: #ff4c4c;
@@ -116,34 +114,100 @@ body, html {
     display: none; 
     text-align: center;
 }
+
+.tos-group { margin-bottom: 5px; }
+
+.tos-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.tos-checkbox input { display: none; }
+
+.custom-checkbox {
+    width: 16px;
+    height: 16px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #666;
+    border-radius: 3px;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.tos-checkbox input:checked + .custom-checkbox {
+    background: #21b200;
+    border-color: #21b200;
+}
+
+.tos-checkbox input:checked + .custom-checkbox::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    font-weight: bold;
+}
+
+.tos-text { line-height: 1.4; }
+
+.tos-text a {
+    color: #25cd00b1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.tos-text a:hover { text-decoration: underline; }
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="page-overlay"></div>
-
 <div class="auth-card">
 
-    <!-- Logo en haut -->
     <h2 class="title reveal del-1">
         <img src="https://i.postimg.cc/cHMDXLj7/Gemini-Generated-Image-fa34i6fa34i6fa34-removebg-preview.png" alt="Yosakura Logo" class="site-logo">
     </h2>
 
     <p class="subtitle reveal del-2">Sign in to your Yosakura account.</p>
 
-    <!-- Email -->
     <div class="input-group reveal del-3">
         <label class="input-label">E-Mail</label>
         <img src="https://i.postimg.cc/J0zmvs5F/54e08a3e14e15db066d18a08ddae654b-removebg-preview.png" alt="icon">
         <input type="email" id="email" class="form-input" placeholder="name@example.com">
     </div>
 
-    <!-- Password -->
     <div class="input-group reveal del-4">
         <label class="input-label">Password</label>
         <img src="https://i.postimg.cc/X7xxnpcg/a241bb614f4bcf37290656c7eff1bfb4-removebg-preview.png" alt="icon">
         <input type="password" id="pass" class="form-input" placeholder="Minimum 6 characters">
+    </div>
+
+    <div class="input-group tos-group reveal del-5">
+        <label class="tos-checkbox">
+            <input type="checkbox" id="tosCheck">
+            <span class="custom-checkbox"></span>
+            <span class="tos-text">
+                You need to accept the 
+                <a href="/terms" target="_blank" rel="noopener">ToS</a>
+            </span>
+        </label>
     </div>
 
     <button class="submit-btn reveal del-5" id="loginBtn">Login</button>
@@ -192,6 +256,12 @@ document.getElementById('loginBtn').onclick = async () => {
         errorMsg.style.display = "block";
     }
 };
+
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
+
 </script>
 
 </body>
